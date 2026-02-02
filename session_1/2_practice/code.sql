@@ -9,3 +9,51 @@
 
 
 -- write your sql code here
+--1
+--select B.title,  M.name, L.loan_date
+--from books B
+--join loans L on L.book_id = B.id 
+--join members M on M.id = L.member_id
+--2
+--select B.title, L.loan_date
+--from books B 
+--join loans L on L.book_id = B.id 
+--3
+--select L.name, B.title
+--from books B 
+--join librarybranch L on L.id = B.branch_id
+--order by L.name
+--4 
+--select L.name, count(B.title) AS Books 
+--from books B
+--join librarybranch L on L.id = B.branch_id
+--group by L.name
+--5
+--select L.name
+--from books B
+--join librarybranch L on L.id = B.branch_id
+--group by L.name
+--having count(B.title) > 7
+--6
+--select M.name, L.book_id, L.loan_date
+--from members M
+--join loans L on L.member_id = M.id
+--7
+--select M.name, count(L.id) AS borrowed
+--from members M 
+--left join loans L on L.member_id = M.id
+--group by M.name
+--having borrowed < 1
+--8          
+--select L.name, count(Ln.id) AS NumLoan
+--from Loans Ln 
+--join books B on Ln.book_id = B.id
+--left join librarybranch L on L.id = B.branch_id
+--group by L.name
+--9                         ISSUEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+--select M.name, count(Ln.return_date) AS Active
+--from members M 
+--left join loans Ln on Ln.member_id = M.id
+--group by M.name
+--having Ln.return_date < 1
+--10
