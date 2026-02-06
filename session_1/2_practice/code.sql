@@ -50,10 +50,18 @@
 --join books B on Ln.book_id = B.id
 --left join librarybranch L on L.id = B.branch_id
 --group by L.name
---9                         ISSUEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
---select M.name, count(Ln.return_date) AS Active
+--9                         
+--select M.name, count(Ln.id) AS Active_Loans
 --from members M 
---left join loans Ln on Ln.member_id = M.id
+--join loans Ln on Ln.member_id = M.id
+--and Ln.return_date is null
 --group by M.name
---having Ln.return_date < 1
 --10
+--select B.title, 'Loaned Book' as Status
+--from books B
+--join loans Ln on Ln.book_id = B.id
+--union all
+--select B.title, 'Unloaned Book' as Status
+--from books B
+--left join loans Ln on Ln.book_id = B.id
+--where Ln.id is null;
